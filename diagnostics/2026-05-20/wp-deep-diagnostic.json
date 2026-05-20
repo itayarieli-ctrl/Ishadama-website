@@ -206,5 +206,519 @@
   },
   "debug_log_scalla": [
     "debug.log not found at /home/u310848492/domains/ishadama.co.il/public_html/wp-content/debug.log"
-  ]
+  ],
+  "elementor_forms": [
+    {
+      "page_id": "4120",
+      "page_title": "דף נחיתה חדש לקמפיין",
+      "page_slug": "%d7%93%d7%a3-%d7%a0%d7%97%d7%99%d7%aa%d7%94-%d7%97%d7%93%d7%a9-%d7%9c%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f",
+      "forms": [
+        {
+          "widget_type": "form",
+          "settings": {
+            "form_name": "קמפיין נחיתה קטן",
+            "form_fields": [
+              {
+                "_id": "b4037f9",
+                "field_type": "recaptcha_v3",
+                "recaptcha_badge": "bottomleft",
+                "custom_id": "field_b4037f9"
+              },
+              {
+                "custom_id": "firstname",
+                "field_label": "שם",
+                "placeholder": "שם",
+                "width": "33",
+                "dynamic": {
+                  "active": true
+                },
+                "_id": "90f6b7e"
+              },
+              {
+                "custom_id": "mobile",
+                "field_type": "tel",
+                "required": "true",
+                "field_label": "טלפון",
+                "placeholder": "טלפון",
+                "width": "33",
+                "_id": "9df5f70"
+              },
+              {
+                "_id": "40b1faf",
+                "field_type": "select",
+                "field_options": "מתי נוח לי?\nבוקר\nצהריים \nאחרהצ\n",
+                "width": "33",
+                "custom_id": "cf_2459",
+                "field_label": "מתי נוח"
+              },
+              {
+                "_id": "9321423",
+                "field_type": "honeypot",
+                "custom_id": "field_9321423"
+              },
+              {
+                "_id": "4b40491",
+                "field_type": "acceptance",
+                "required": "true",
+                "custom_id": "field_4b40491",
+                "acceptance_text": "אני מאשר/ת קבלת דוא\"ל מאיש אדמה"
+              },
+              {
+                "_id": "0dad83c",
+                "field_type": "html",
+                "field_html": "[scallacf7 scallacampid=\"דה מרקר אמצע עמוד\"]",
+                "custom_id": "field_0dad83c",
+                "__dynamic__": {
+                  "field_label": "[elementor-tag id=\"8f6923b\" name=\"shortcode\" settings=\"%7B%22shortcode%22%3A%22%5Bscallacf7%20scallacampid%3D%5C%22%D7%93%D7%94%20%D7%9E%D7%A8%D7%A7%D7%A8%20%D7%90%D7%9E%D7%A6%D7%A2%20%D7%A2%D7%9E%D7%95%D7%93%5C%22%5D%22%7D\"]"
+                }
+              }
+            ],
+            "show_labels": "",
+            "button_size": "md",
+            "step_next_label": "הבא",
+            "step_previous_label": "הקודם",
+            "button_text": "שליחה",
+            "email_to": "admin@ishadama.co.il",
+            "email_subject": "ליד חדש דה מרקר אמצע עמוד",
+            "email_content": "[all-fields]",
+            "email_from": "info@ishadama.co.il",
+            "email_from_name": "איש אדמה",
+            "email_to_2": "admin@ishadama.co.il",
+            "email_subject_2": "הודעה חדשה מאת &quot;איש אדמה&quot;",
+            "email_content_2": "[all-fields]",
+            "email_from_2": "email@ishadama.co.il",
+            "email_from_name_2": "איש אדמה",
+            "email_reply_to_2": "admin@ishadama.co.il",
+            "activecampaign_fields_map": [],
+            "convertkit_fields_map": [],
+            "drip_fields_map": [],
+            "getresponse_fields_map": [],
+            "mailchimp_fields_map": [],
+            "mailerlite_fields_map": [],
+            "custom_messages": "yes",
+            "success_message": "נשלח בהצלחה",
+            "error_message": "אירעה שגיאה",
+            "server_message": "קיימת תקלה בשרת",
+            "invalid_message": "שגיאה במילוי הטופס",
+            "required_field_message": "שדה זה הוא שדה חובה.",
+            "field_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "field_border_radius": {
+              "unit": "px",
+              "top": "8",
+              "right": "8",
+              "bottom": "8",
+              "left": "8",
+              "isLinked": true
+            },
+            "button_border_border": "solid",
+            "button_border_width": {
+              "unit": "px",
+              "top": "2",
+              "right": "2",
+              "bottom": "2",
+              "left": "2",
+              "isLinked": true
+            },
+            "button_border_radius": {
+              "unit": "px",
+              "top": "8",
+              "right": "8",
+              "bottom": "8",
+              "left": "8",
+              "isLinked": true
+            },
+            "button_text_padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+            },
+            "__globals__": {
+              "html_color": "globals/colors?id=text",
+              "field_background_color": "globals/colors?id=secondary",
+              "field_border_color": "globals/colors?id=25706c7",
+              "button_background_color": "globals/colors?id=7263021",
+              "previous_button_background_color": "globals/colors?id=secondary",
+              "button_background_hover_color": "globals/colors?id=primary",
+              "button_hover_color": "globals/colors?id=secondary",
+              "previous_button_background_color_hover": "globals/colors?id=primary",
+              "previous_button_text_color_hover": "globals/colors?id=secondary",
+              "button_border_color": "globals/colors?id=25706c7",
+              "button_hover_border_color": "globals/colors?id=primary",
+              "previous_button_text_color": "globals/colors?id=primary",
+              "button_text_color": "globals/colors?id=secondary",
+              "previous_button_border_color": "globals/colors?id=4f8de50",
+              "previous_button_border_color_hover": "globals/colors?id=primary",
+              "label_color": "globals/colors?id=text"
+            },
+            "_margin": {
+              "unit": "%",
+              "top": "2",
+              "right": "0",
+              "bottom": "2",
+              "left": "0",
+              "isLinked": false
+            },
+            "_margin_widescreen": {
+              "unit": "%",
+              "top": "",
+              "right": "",
+              "bottom": "",
+              "left": "",
+              "isLinked": true
+            },
+            "_margin_laptop": {
+              "unit": "%",
+              "top": "",
+              "right": "",
+              "bottom": "",
+              "left": "",
+              "isLinked": true
+            },
+            "_margin_tablet": {
+              "unit": "%",
+              "top": "",
+              "right": "",
+              "bottom": "",
+              "left": "",
+              "isLinked": true
+            },
+            "_margin_mobile": {
+              "unit": "px",
+              "top": "15",
+              "right": "0",
+              "bottom": "15",
+              "left": "0",
+              "isLinked": false
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "html_color": "#0D1C16",
+            "field_background_color": "#FCFBF7",
+            "field_border_color": "#DFD6CC",
+            "button_background_color": "#436B38",
+            "button_text_color": "#FCFBF7",
+            "previous_button_background_color": "#FCFBF7",
+            "previous_button_text_color": "#4A3E36",
+            "button_background_hover_color": "#4A3E36",
+            "button_hover_color": "#FCFBF7",
+            "previous_button_background_color_hover": "#4A3E36",
+            "previous_button_text_color_hover": "#FCFBF7",
+            "custom_css": "selector .elementor-button[type=\"submit\"] {\n   box-shadow: 0px 0px 10px -5px #18362A;\n}\n.elementor-4120 .elementor-element.elementor-element-6a15aa8 .elementor-field-group .elementor-field{\n     box-shadow: 2px 2px 5px -4px #18362A;\n}\n",
+            "_padding_mobile": {
+              "unit": "%",
+              "top": "0",
+              "right": "5",
+              "bottom": "0",
+              "left": "5",
+              "isLinked": false
+            },
+            "submit_actions": [
+              "save-to-database",
+              "email",
+              "redirect",
+              "webhook"
+            ],
+            "webhooks": "https://hooks.zapier.com/hooks/catch/17436978/3ac726l/",
+            "redirect_to": "https://ishadama.co.il/תודה-שיצרת-קשר/",
+            "__dynamic__": {
+              "redirect_to": "[elementor-tag id=\"04e6bbd\" name=\"internal-url\" settings=\"%7B%22type%22%3A%22post%22%2C%22post_id%22%3A%223189%22%7D\"]"
+            },
+            "_element_width": "initial",
+            "_element_custom_width": {
+              "unit": "%",
+              "size": 75,
+              "sizes": []
+            },
+            "button_border_color": "#9E846E",
+            "previous_button_border_color": "#DFD6CC",
+            "button_hover_border_color": "#4A3E36",
+            "previous_button_border_color_hover": "#4A3E36"
+          }
+        },
+        {
+          "widget_type": "form",
+          "settings": {
+            "form_name": "קמפיין נחיתה",
+            "form_fields": [
+              {
+                "_id": "2d55c53",
+                "field_type": "recaptcha_v3",
+                "recaptcha_badge": "bottomleft",
+                "custom_id": "field_2d55c53"
+              },
+              {
+                "custom_id": "firstname",
+                "field_label": "שם פרטי",
+                "width": "50",
+                "dynamic": {
+                  "active": true
+                },
+                "_id": "f48ece7",
+                "required": "true"
+              },
+              {
+                "_id": "b953709",
+                "field_label": "שם משפחה",
+                "required": "true",
+                "width": "50",
+                "custom_id": "lastname"
+              },
+              {
+                "_id": "e33e4be",
+                "field_type": "tel",
+                "field_label": "טלפון",
+                "required": "true",
+                "width": "50",
+                "custom_id": "mobile"
+              },
+              {
+                "_id": "8c9e190",
+                "field_type": "select",
+                "field_label": "שעות נוחות לשיחה",
+                "required": "true",
+                "field_options": "בוקר\nצהריים \nערב",
+                "width": "50",
+                "custom_id": "cf_2459"
+              },
+              {
+                "custom_id": "email",
+                "field_type": "email",
+                "field_label": "אימייל",
+                "_id": "357e3e6",
+                "required": "true"
+              },
+              {
+                "_id": "70cae7e",
+                "field_type": "acceptance",
+                "required": "true",
+                "custom_id": "field_70cae7e",
+                "acceptance_text": "אני מאשר/ת קבלת דוא\"ל מאיש אדמה"
+              },
+              {
+                "_id": "ea6c8a4",
+                "field_type": "honeypot",
+                "custom_id": "field_ea6c8a4"
+              },
+              {
+                "_id": "ec11413",
+                "field_type": "html",
+                "field_html": "[scallacf7 scallacampid=\"דה מרקר סוף עמוד\"]",
+                "custom_id": "field_ec11413",
+                "__dynamic__": {
+                  "field_label": "[elementor-tag id=\"a3e4bfc\" name=\"shortcode\" settings=\"%7B%22shortcode%22%3A%22%5Bscallacf7%20scallacampid%3D%5C%22%D7%93%D7%94%20%D7%9E%D7%A8%D7%A7%D7%A8%20%D7%A1%D7%95%D7%A3%20%D7%A2%D7%9E%D7%95%D7%93%5C%22%5D%22%7D\"]"
+                }
+              }
+            ],
+            "mark_required": "yes",
+            "step_next_label": "הבא",
+            "step_previous_label": "הקודם",
+            "button_text": "שלח",
+            "email_to": "admin@ishadama.co.il",
+            "email_subject": "ליד חדש דה מרקר סוף עמוד",
+            "email_content": "[all-fields]",
+            "email_from": "info@ishadama.co.il",
+            "email_from_name": "איש אדמה",
+            "email_to_2": "admin@ishadama.co.il",
+            "email_subject_2": "New message from &quot;איש אדמה&quot;",
+            "email_content_2": "[all-fields]",
+            "email_from_2": "email@ishadama.co.il",
+            "email_from_name_2": "איש אדמה",
+            "email_reply_to_2": "admin@ishadama.co.il",
+            "activecampaign_fields_map": [],
+            "convertkit_fields_map": [],
+            "drip_fields_map": [],
+            "getresponse_fields_map": [],
+            "mailchimp_fields_map": [],
+            "mailerlite_fields_map": [],
+            "step_icon_shape": "rounded",
+            "custom_messages": "yes",
+            "success_message": "הטופס נשלח",
+            "error_message": "שגיאה בשליחת הטופס",
+            "server_message": "קיימת תקלה בשרת",
+            "invalid_message": "שגיאה במילוי הטופס",
+            "required_field_message": "This field is required.",
+            "field_border_width": {
+              "unit": "px",
+              "top": "2",
+              "right": "2",
+              "bottom": "2",
+              "left": "2",
+              "isLinked": true
+            },
+            "field_border_radius": {
+              "unit": "px",
+              "top": "8",
+              "right": "8",
+              "bottom": "8",
+              "left": "8",
+              "isLinked": true
+            },
+            "button_border_border": "solid",
+            "button_border_width": {
+              "unit": "px",
+              "top": "2",
+              "right": "2",
+              "bottom": "2",
+              "left": "2",
+              "isLinked": true
+            },
+            "button_border_radius": {
+              "unit": "px",
+              "top": "8",
+              "right": "8",
+              "bottom": "8",
+              "left": "8",
+              "isLinked": true
+            },
+            "button_text_padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "_padding": {
+              "unit": "%",
+              "top": "2",
+              "right": "2",
+              "bottom": "2",
+              "left": "2",
+              "isLinked": true
+            },
+            "_padding_widescreen": {
+              "unit": "%",
+              "top": "",
+              "right": "",
+              "bottom": "",
+              "left": "",
+              "isLinked": true
+            },
+            "_padding_laptop": {
+              "unit": "%",
+              "top": "",
+              "right": "",
+              "bottom": "",
+              "left": "",
+              "isLinked": true
+            },
+            "_padding_tablet": {
+              "unit": "%",
+              "top": "",
+              "right": "",
+              "bottom": "",
+              "left": "",
+              "isLinked": true
+            },
+            "_padding_mobile": {
+              "unit": "%",
+              "top": "3",
+              "right": "5",
+              "bottom": "3",
+              "left": "5",
+              "isLinked": false
+            },
+            "_element_width": "initial",
+            "_element_custom_width": {
+              "unit": "%",
+              "size": 60,
+              "sizes": []
+            },
+            "_border_radius": {
+              "unit": "px",
+              "top": "8",
+              "right": "8",
+              "bottom": "8",
+              "left": "8",
+              "isLinked": true
+            },
+            "_box_shadow_box_shadow_type": "yes",
+            "_box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 0,
+              "blur": 10,
+              "spread": -5,
+              "color": "#4A3E36"
+            },
+            "__globals__": {
+              "label_color": "globals/colors?id=text",
+              "html_color": "globals/colors?id=text",
+              "field_background_color": "",
+              "field_border_color": "",
+              "button_background_color": "globals/colors?id=7263021",
+              "previous_button_background_color": "globals/colors?id=secondary",
+              "button_background_hover_color": "globals/colors?id=4d67062",
+              "button_hover_color": "globals/colors?id=secondary",
+              "previous_button_background_color_hover": "globals/colors?id=primary",
+              "previous_button_text_color_hover": "globals/colors?id=secondary",
+              "button_border_color": "globals/colors?id=25706c7",
+              "button_hover_border_color": "globals/colors?id=primary",
+              "previous_button_text_color": "globals/colors?id=primary",
+              "button_text_color": "globals/colors?id=secondary",
+              "previous_button_border_color": "globals/colors?id=4f8de50",
+              "previous_button_border_color_hover": "globals/colors?id=primary",
+              "_background_color": "globals/colors?id=secondary"
+            },
+            "_element_width_mobile": "inherit",
+            "html_color": "#0D1C16",
+            "field_border_color": "#F2EEE9",
+            "button_background_color": "#436B38",
+            "button_text_color": "#FCFBF7",
+            "previous_button_background_color": "#FCFBF7",
+            "previous_button_text_color": "#4A3E36",
+            "button_background_hover_color": "#9FC794",
+            "button_hover_color": "#FCFBF7",
+            "previous_button_text_color_hover": "#FCFBF7",
+            "custom_css": "selector .elementor-button[type=\"submit\"] {\n   box-shadow: 0px 0px 20px -5px #18362A;\n   \n}\n",
+            "_element_id": "contact",
+            "submit_actions": [
+              "save-to-database",
+              "email",
+              "redirect",
+              "webhook"
+            ],
+            "webhooks": "https://hooks.zapier.com/hooks/catch/17436978/3ac726l/",
+            "redirect_to": "https://ishadama.co.il/תודה-שיצרת-קשר/",
+            "__dynamic__": {
+              "redirect_to": "[elementor-tag id=\"a0593fe\" name=\"internal-url\" settings=\"%7B%22type%22%3A%22post%22%2C%22post_id%22%3A%223189%22%7D\"]"
+            },
+            "email_reply_to": "email",
+            "button_border_color": "#9E846E",
+            "previous_button_border_color": "#F2EEE9",
+            "button_hover_border_color": "#4A3E36",
+            "previous_button_background_color_hover": "#4A3E36",
+            "previous_button_border_color_hover": "#4A3E36",
+            "label_color": "#0D1C16",
+            "_background_background": "classic",
+            "_background_color": "#FCFBF7"
+          }
+        }
+      ]
+    }
+  ],
+  "wpforms_shortcode_pages": []
 }
