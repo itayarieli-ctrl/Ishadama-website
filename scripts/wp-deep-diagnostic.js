@@ -116,6 +116,58 @@ if (file_exists($log_path)) {
   $out['debug_log_scalla'] = ['debug.log not found at ' . $log_path];
 }
 
+// 6. Read _elementor_data from all published pages to find form widgets
+$pages = $wpdb->get_results(
+  "SELECT p.ID, p.post_title, p.post_name, pm.meta_value as elementor_data
+   FROM {$wpdb->posts} p
+   LEFT JOIN {$wpdb->postmeta} pm ON pm.post_id = p.ID AND pm.meta_key = '_elementor_data'
+   WHERE p.post_type = 'page' AND p.post_status = 'publish'
+   ORDER BY p.ID",
+  ARRAY_A
+);
+$out['elementor_forms'] = [];
+foreach ($pages as $page) {
+  if (!$page['elementor_data']) continue;
+  $data = json_decode($page['elementor_data'], true);
+  if (!$data) continue;
+  // Recursively find form widgets
+  $forms_found = [];
+  $stack = $data;
+  while (!empty($stack)) {
+    $node = array_shift($stack);
+    if (isset($node['widgetType']) && in_array($node['widgetType'], ['form', 'wpforms', 'wp-forms'])) {
+      $forms_found[] = [
+        'widget_type' => $node['widgetType'],
+        'settings'    => $node['settings'] ?? [],
+      ];
+    }
+    if (!empty($node['elements'])) {
+      foreach ($node['elements'] as $child) $stack[] = $child;
+    }
+    if (!empty($node['children'])) {
+      foreach ($node['children'] as $child) $stack[] = $child;
+    }
+  }
+  if (!empty($forms_found)) {
+    $out['elementor_forms'][] = [
+      'page_id'    => $page['ID'],
+      'page_title' => $page['post_title'],
+      'page_slug'  => $page['post_name'],
+      'forms'      => $forms_found,
+    ];
+  }
+}
+
+// 7. Also check for WPForms shortcodes in post content (non-Elementor pages)
+$wpforms_shortcodes = $wpdb->get_results(
+  "SELECT ID, post_title, post_content FROM {$wpdb->posts}
+   WHERE post_status = 'publish' AND post_content LIKE '%wpforms%'",
+  ARRAY_A
+);
+$out['wpforms_shortcode_pages'] = array_map(fn($p) => [
+  'id' => $p['ID'], 'title' => $p['post_title']
+], $wpforms_shortcodes);
+
 update_option('_claude_diag_result', json_encode($out), false);
 `;
 
@@ -265,6 +317,38 @@ register_setting('general', '_claude_read_result', ['show_in_rest' => true, 'typ
 
     // SMTP
     md += `\n## WP Mail SMTP (sanitised)\n\n\`\`\`json\n${JSON.stringify(parsed.wp_mail_smtp, null, 2)?.slice(0, 1000)}\n\`\`\`\n`;
+
+    // Elementor forms
+    md += `\n## Elementor form widgets found on pages\n\n`;
+    if (parsed.elementor_forms?.length) {
+      parsed.elementor_forms.forEach((p) => {
+        md += `### Page: "${p.page_title}" (id ${p.page_id})\n\n`;
+        p.forms.forEach((f) => {
+          md += `- Widget type: **${f.widget_type}**\n`;
+          const s = f.settings || {};
+          if (s.form_name) md += `  - Form name: ${s.form_name}\n`;
+          if (s.email?.to) md += `  - Email to: ${s.email.to}\n`;
+          if (s.actions) md += `  - Actions: ${JSON.stringify(s.actions)}\n`;
+          if (s.form_fields) {
+            md += `  - Fields:\n`;
+            (s.form_fields || []).forEach((field) => {
+              md += `    - ${field.field_label || field.field_type} (type: ${field.field_type}, id: ${field._id})\n`;
+            });
+          }
+          // Show full settings for deeper inspection
+          md += `\n<details><summary>Full widget settings</summary>\n\n\`\`\`json\n${JSON.stringify(s, null, 2).slice(0, 3000)}\n\`\`\`\n</details>\n\n`;
+        });
+      });
+    } else {
+      md += `_No Elementor form widgets found on published pages._\n`;
+    }
+
+    md += `\n## Pages with WPForms shortcodes\n\n`;
+    if (parsed.wpforms_shortcode_pages?.length) {
+      parsed.wpforms_shortcode_pages.forEach((p) => md += `- ${p.title} (id ${p.id})\n`);
+    } else {
+      md += `_None._\n`;
+    }
 
     // Debug log
     md += `\n## Debug log (Scalla/WPForms mentions)\n\n`;
