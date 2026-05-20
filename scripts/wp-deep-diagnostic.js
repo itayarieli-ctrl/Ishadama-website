@@ -12,6 +12,21 @@ const USER = process.env.WP_USERNAME;
 const PASS = process.env.WP_APP_PASSWORD;
 const AUTH = "Basic " + Buffer.from(`${USER}:${PASS.replace(/\s+/g, "")}`).toString("base64");
 
+// Scrub any value that looks like a secret before writing to disk.
+// Covers: OAuth tokens/refresh tokens, API keys, client secrets.
+const SECRET_PATTERNS = [
+  /ya29\.[a-zA-Z0-9_\-\.]{20,}/g,          // Google access token
+  /1\/\/[a-zA-Z0-9_\-\.]{20,}/g,            // Google refresh token
+  /[0-9]+-[a-z0-9]+\.apps\.googleusercontent\.com/g, // Google client ID
+  /GOCSPX-[a-zA-Z0-9_\-]{20,}/g,           // Google client secret
+  /"(access_token|refresh_token|client_secret|auth_token|token|secret|password|api_key|apikey|private_key)"\s*:\s*"[^"]{8,}"/gi,
+];
+function scrub(str) {
+  if (typeof str !== "string") str = JSON.stringify(str, null, 2);
+  for (const p of SECRET_PATTERNS) str = str.replace(p, "***REDACTED***");
+  return str;
+}
+
 function req(pathname, { method = "GET", body } = {}) {
   return new Promise((resolve) => {
     const url = new URL(pathname, SITE);
@@ -47,8 +62,10 @@ $out = [];
 // 1. All WordPress options that mention scalla / wpforms / crm
 $scalla_opts = $wpdb->get_results(
   "SELECT option_name, option_value FROM {$wpdb->options}
-   WHERE option_name LIKE '%scalla%'
-      OR option_name LIKE '%wp_scalla%'
+   WHERE (option_name LIKE '%scalla%' OR option_name LIKE '%wp_scalla%')
+     AND option_name NOT LIKE '%google%'
+     AND option_name NOT LIKE '%oauth%'
+     AND option_name NOT LIKE '%token%'
    ORDER BY option_name",
   ARRAY_A
 );
@@ -257,8 +274,8 @@ register_setting('general', '_claude_read_result', ['show_in_rest' => true, 'typ
       md += `_None found._\n`;
     }
 
-    fs.writeFileSync(path.join(dir, "wp-deep-diagnostic.md"), md);
-    fs.writeFileSync(path.join(dir, "wp-deep-diagnostic.json"), JSON.stringify(parsed, null, 2));
+    fs.writeFileSync(path.join(dir, "wp-deep-diagnostic.md"), scrub(md));
+    fs.writeFileSync(path.join(dir, "wp-deep-diagnostic.json"), scrub(JSON.stringify(parsed, null, 2)));
     console.log(`Wrote ${dir}/wp-deep-diagnostic.md`);
   } else {
     // Fallback: write what we got from settings
