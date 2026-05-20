@@ -1,0 +1,210 @@
+{
+  "scalla_options": [
+    {
+      "option_name": "scalla_debug_last",
+      "option_value": "a:5:{s:6:\"fields\";a:8:{s:9:\"firstname\";s:8:\"דבאג\";s:8:\"lastname\";s:6:\"דוג\";s:13:\"field_9c64e60\";s:6:\"דוג\";s:6:\"mobile\";s:10:\"0506660777\";s:7:\"cf_2459\";s:8:\"בוקר\";s:5:\"email\";s:21:\"debug_test@test.co.il\";s:13:\"field_58fa87c\";s:2:\"on\";s:12:\"scallacampid\";s:30:\"טופס אתר וורדפרס\";}s:13:\"response_code\";i:200;s:13:\"response_body\";s:52:\"{\"success\":false,\"message\":\"Webforms limit reached\"}\";s:5:\"error\";s:4:\"none\";s:4:\"time\";s:19:\"2026-05-20 01:04:26\";}"
+    },
+    {
+      "option_name": "scallacampid1",
+      "option_value": "קמפיין טאבולה סוף עמוד"
+    },
+    {
+      "option_name": "scallacampid10",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacampid2",
+      "option_value": "טופס אתר וורדפרס"
+    },
+    {
+      "option_name": "scallacampid3",
+      "option_value": "דה מרקר אמצע עמוד"
+    },
+    {
+      "option_name": "scallacampid4",
+      "option_value": "דה מרקר סוף עמוד"
+    },
+    {
+      "option_name": "scallacampid5",
+      "option_value": "טאבולה אמצע עמוד"
+    },
+    {
+      "option_name": "scallacampid6",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacampid7",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacampid8",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacampid9",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacamppass10",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacamppass2",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacamppass3",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacamppass4",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacamppass5",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacamppass6",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacamppass7",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacamppass8",
+      "option_value": ""
+    },
+    {
+      "option_name": "scallacamppass9",
+      "option_value": ""
+    }
+  ],
+  "wpforms_forms": [],
+  "wpforms_settings": {
+    "modern-markup": "1",
+    "modern-markup-is-set": true,
+    "modern-markup-hide-setting": true
+  },
+  "wp_mail_smtp": {
+    "mail": {
+      "from_email": "admin@ishadama.co.il",
+      "from_name": "ishadama.co.il",
+      "mailer": "gmail",
+      "return_path": false,
+      "from_email_force": false,
+      "from_name_force": false
+    },
+    "smtp": {
+      "autotls": "yes",
+      "auth": "yes",
+      "host": "",
+      "port": "587",
+      "encryption": "tls",
+      "user": "",
+      "pass": ""
+    },
+    "general": {
+      "summary_report_email_disabled": true
+    },
+    "gmail": {
+      "client_id": "***REDACTED***",
+      ***REDACTED***,
+      "one_click_setup_enabled": false,
+      "one_click_setup_credentials": {
+        "key": "",
+        "token": ""
+      },
+      "one_click_setup_user_details": {
+        "email": ""
+      },
+      "is_setup_wizard_auth": false,
+      "auth_code": "4/0AeoWuM_cfgzic9Bu-Bt_7gLlcl-ZjZ8mP9_EYurEJvtej1uYe7bC6AxNgqNo0CDa3FzpLg",
+      "access_token": {
+        ***REDACTED***,
+        "expires_in": 3599,
+        "scope": "https://mail.google.com/",
+        "token_type": "Bearer",
+        "created": 1779226982,
+        ***REDACTED***
+      },
+      ***REDACTED***,
+      "user_details": {
+        "email": "admin@ishadama.co.il"
+      }
+    },
+    "sendlayer": {
+      "api_key": ""
+    },
+    "smtpcom": {
+      "api_key": "",
+      "channel": ""
+    },
+    "sendinblue": {
+      "api_key": "",
+      "domain": ""
+    },
+    "mailgun": {
+      "api_key": "",
+      "domain": "",
+      "region": "US"
+    },
+    "sendgrid": {
+      "api_key": "",
+      "domain": ""
+    },
+    "sparkpost": {
+      "api_key": "",
+      "region": "US"
+    },
+    "postmark": {
+      "server_api_token": "",
+      "message_stream": ""
+    },
+    "amazonses": {
+      "client_id": "",
+      "client_secret": "",
+      "region": "us-east-1"
+    },
+    "outlook": {
+      "client_id": "",
+      "client_secret": "",
+      "access_token": [],
+      "refresh_token": "",
+      "user_details": {
+        "email": ""
+      }
+    },
+    "zoho": {
+      "client_id": "",
+      "client_secret": "",
+      "domain": "com",
+      "access_token": [],
+      "refresh_token": "",
+      "user_details": {
+        "email": ""
+      }
+    },
+    "logs": {
+      "enabled": false,
+      "log_email_content": false,
+      "save_attachments": false,
+      "open_email_tracking": false,
+      "click_link_tracking": false
+    },
+    "alert_email": {
+      "enabled": false,
+      "connections": []
+    },
+    "license": {
+      "key": "",
+      "is_expired": false,
+      "is_disabled": false,
+      "is_invalid": false
+    }
+  },
+  "debug_log_scalla": [
+    "debug.log not found at /home/u310848492/domains/ishadama.co.il/public_html/wp-content/debug.log"
+  ]
+}
