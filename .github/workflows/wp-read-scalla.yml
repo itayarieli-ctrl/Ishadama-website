@@ -2,6 +2,11 @@ name: Read Scalla Plugin Source
 
 on:
   workflow_dispatch:
+  push:
+    branches: [claude/general-session-Bv0AI]
+    paths:
+      - 'scripts/wp-read-scalla-plugin.js'
+      - '.github/workflows/wp-read-scalla.yml'
 
 jobs:
   read:

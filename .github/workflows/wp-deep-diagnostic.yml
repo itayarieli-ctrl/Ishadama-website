@@ -2,6 +2,11 @@ name: WP Deep Diagnostic
 
 on:
   workflow_dispatch:
+  push:
+    branches: [claude/general-session-Bv0AI]
+    paths:
+      - 'scripts/wp-deep-diagnostic.js'
+      - '.github/workflows/wp-deep-diagnostic.yml'
 
 jobs:
   diagnose:

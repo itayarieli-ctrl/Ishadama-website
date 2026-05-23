@@ -2,6 +2,11 @@ name: WP Diagnostic
 
 on:
   workflow_dispatch:
+  push:
+    branches: [claude/general-session-Bv0AI]
+    paths:
+      - 'scripts/wp-diagnostic.js'
+      - '.github/workflows/wp-diagnostic.yml'
 
 jobs:
   diagnose:
@@ -10,6 +15,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: claude/general-session-Bv0AI
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -26,6 +33,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes"
           else
-            git commit -m "Diagnostic run: $(date -u +%Y-%m-%d)"
+            git commit -m "[auto] Diagnostic run"
             git push
           fi

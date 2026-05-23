@@ -2,6 +2,11 @@ name: Check Stored Leads
 
 on:
   workflow_dispatch:
+  push:
+    branches: [claude/general-session-Bv0AI]
+    paths:
+      - 'scripts/wp-check-leads.js'
+      - '.github/workflows/wp-check-leads.yml'
 
 jobs:
   check:
