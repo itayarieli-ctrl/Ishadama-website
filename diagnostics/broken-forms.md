@@ -1,13 +1,13 @@
 # Broken Forms Diagnostic
 
-**Run:** 2026-05-23T20:48:38.598Z
+**Run:** 2026-05-23T20:52:08.335Z
 
 ## Summary
+- Total Elementor forms: 0
+- With Scalla action: 0
+- Missing Scalla action: 0
 
-- Pages scanned: 0
-- Elementor forms found: 0
-- Forms WITH Scalla action: 0
-- Forms MISSING Scalla action: 0
+## ⚠️ Could not retrieve data — check workflow logs
 
-## ⚠️ No Elementor forms found — check if _elementor_data meta is accessible
+## Working Forms
 
