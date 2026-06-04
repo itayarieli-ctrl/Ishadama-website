@@ -1,0 +1,25 @@
+name: Fix Accessibility Page Slug
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/general-session-Bv0AI]
+    paths:
+      - 'scripts/wp-fix-accessibility-slug.js'
+      - '.github/workflows/wp-fix-accessibility-slug.yml'
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/general-session-Bv0AI
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Fix slug
+        env:
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: node scripts/wp-fix-accessibility-slug.js
