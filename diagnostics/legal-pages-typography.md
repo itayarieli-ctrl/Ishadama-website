@@ -1,6 +1,6 @@
 # Legal Pages Typography
 
-**Run:** 2026-06-04T13:06:34.715Z
+**Run:** 2026-06-04T13:31:11.593Z
 
 ## privacy — https://ishadama.co.il/privacy/
 
@@ -15,7 +15,7 @@
 
 - "כְּלֵי נְגִישׁוּת
 					סְגִירָה" — size: **21px**, weight: 700, align: center
-- "מדיניות פרטיות" — size: **28.8px**, weight: 600, align: center
+- "מדיניות פרטיות" — size: **32px**, weight: 600, align: center
 
 ### First paragraph
 
@@ -36,7 +36,7 @@
 
 - "כְּלֵי נְגִישׁוּת
 					סְגִירָה" — size: **21px**, weight: 700, align: center
-- "תנאי שימוש" — size: **28.8px**, weight: 600, align: center
+- "תנאי שימוש" — size: **32px**, weight: 600, align: center
 
 ### First paragraph
 
@@ -57,7 +57,7 @@
 
 - "כְּלֵי נְגִישׁוּת
 					סְגִירָה" — size: **21px**, weight: 700, align: center
-- "הצהרת נגישות" — size: **48px**, weight: 700, align: start
+- "הצהרת נגישות" — size: **32px**, weight: 600, align: center
 
 ### First paragraph
 

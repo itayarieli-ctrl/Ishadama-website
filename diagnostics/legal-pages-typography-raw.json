@@ -21,9 +21,9 @@
       {
         "label": "h2",
         "text": "מדיניות פרטיות",
-        "fontSize": "28.8px",
+        "fontSize": "32px",
         "fontWeight": "600",
-        "lineHeight": "28.8px",
+        "lineHeight": "44.8px",
         "color": "rgb(74, 62, 54)",
         "textAlign": "center",
         "fontFamily": "Arimo, sans-serif"
@@ -64,9 +64,9 @@
       {
         "label": "h2",
         "text": "תנאי שימוש",
-        "fontSize": "28.8px",
+        "fontSize": "32px",
         "fontWeight": "600",
-        "lineHeight": "28.8px",
+        "lineHeight": "44.8px",
         "color": "rgb(74, 62, 54)",
         "textAlign": "center",
         "fontFamily": "Arimo, sans-serif"
@@ -107,11 +107,11 @@
       {
         "label": "h2",
         "text": "הצהרת נגישות",
-        "fontSize": "48px",
-        "fontWeight": "700",
-        "lineHeight": "48px",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "lineHeight": "44.8px",
         "color": "rgb(74, 62, 54)",
-        "textAlign": "start",
+        "textAlign": "center",
         "fontFamily": "Arimo, sans-serif"
       }
     ],
