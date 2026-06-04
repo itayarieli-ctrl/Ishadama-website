@@ -1,0 +1,39 @@
+name: Mobile Puppeteer Diagnostic
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/general-session-Bv0AI]
+    paths:
+      - 'scripts/wp-mobile-puppeteer.js'
+      - '.github/workflows/wp-mobile-puppeteer.yml'
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/general-session-Bv0AI
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install puppeteer
+        run: npm init -y && npm install puppeteer
+      - name: Run mobile puppeteer diagnostic
+        run: node scripts/wp-mobile-puppeteer.js
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/
+          # Don't commit node_modules / package files
+          git reset HEAD package.json package-lock.json node_modules 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Mobile Puppeteer diagnostic: $(date -u +%Y-%m-%d)"
+            git push
+          fi
