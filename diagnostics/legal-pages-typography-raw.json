@@ -1,0 +1,131 @@
+[
+  {
+    "name": "privacy",
+    "url": "https://ishadama.co.il/privacy/",
+    "bodyClass": "rtl wp-singular page-template page-template-elementor_canvas page page-id-1508 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-5 elementor-page elementor-page-1508 cmplz-functional cmplz-eu cmplz-optin e--ua-blink e--ua-chrome e--ua-webkit",
+    "h1_count": 0,
+    "h2_count": 2,
+    "p_count": 16,
+    "h1": [],
+    "h2": [
+      {
+        "label": "h2",
+        "text": "כְּלֵי נְגִישׁוּת\n\t\t\t\t\tסְגִירָה",
+        "fontSize": "21px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "color": "rgb(255, 255, 255)",
+        "textAlign": "center",
+        "fontFamily": "Arial, Helvetica, Verdana, sans-serif"
+      },
+      {
+        "label": "h2",
+        "text": "מדיניות פרטיות",
+        "fontSize": "28.8px",
+        "fontWeight": "600",
+        "lineHeight": "28.8px",
+        "color": "rgb(74, 62, 54)",
+        "textAlign": "center",
+        "fontFamily": "Arimo, sans-serif"
+      }
+    ],
+    "first_p": {
+      "label": "p",
+      "text": "כדי לספק את החוויות הטובות ביותר, אנו משתמשים בטכנולוגיות כמ",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "18px",
+      "color": "rgb(34, 34, 34)",
+      "textAlign": "start",
+      "fontFamily": "Arimo, sans-serif"
+    },
+    "body_font_size": "16px",
+    "body_font_family": "Arimo, sans-serif"
+  },
+  {
+    "name": "conditions",
+    "url": "https://ishadama.co.il/conditions/",
+    "bodyClass": "rtl wp-singular page-template page-template-elementor_canvas page page-id-5096 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-5 elementor-page elementor-page-5096 cmplz-functional cmplz-eu cmplz-optin e--ua-blink e--ua-chrome e--ua-webkit",
+    "h1_count": 0,
+    "h2_count": 2,
+    "p_count": 4,
+    "h1": [],
+    "h2": [
+      {
+        "label": "h2",
+        "text": "כְּלֵי נְגִישׁוּת\n\t\t\t\t\tסְגִירָה",
+        "fontSize": "21px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "color": "rgb(255, 255, 255)",
+        "textAlign": "center",
+        "fontFamily": "Arial, Helvetica, Verdana, sans-serif"
+      },
+      {
+        "label": "h2",
+        "text": "תנאי שימוש",
+        "fontSize": "28.8px",
+        "fontWeight": "600",
+        "lineHeight": "28.8px",
+        "color": "rgb(74, 62, 54)",
+        "textAlign": "center",
+        "fontFamily": "Arimo, sans-serif"
+      }
+    ],
+    "first_p": {
+      "label": "p",
+      "text": "כדי לספק את החוויות הטובות ביותר, אנו משתמשים בטכנולוגיות כמ",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "18px",
+      "color": "rgb(34, 34, 34)",
+      "textAlign": "start",
+      "fontFamily": "Arimo, sans-serif"
+    },
+    "body_font_size": "16px",
+    "body_font_family": "Arimo, sans-serif"
+  },
+  {
+    "name": "accessibility",
+    "url": "https://ishadama.co.il/accessibility-statement/",
+    "bodyClass": "rtl wp-singular page-template-default page page-id-3140 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-full-width elementor-kit-5 elementor-page elementor-page-3140 cmplz-functional cmplz-eu cmplz-optin e--ua-blink e--ua-chrome e--ua-webkit",
+    "h1_count": 0,
+    "h2_count": 2,
+    "p_count": 51,
+    "h1": [],
+    "h2": [
+      {
+        "label": "h2",
+        "text": "כְּלֵי נְגִישׁוּת\n\t\t\t\t\tסְגִירָה",
+        "fontSize": "21px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "color": "rgb(255, 255, 255)",
+        "textAlign": "center",
+        "fontFamily": "Arial, Helvetica, Verdana, sans-serif"
+      },
+      {
+        "label": "h2",
+        "text": "הצהרת נגישות",
+        "fontSize": "48px",
+        "fontWeight": "700",
+        "lineHeight": "48px",
+        "color": "rgb(74, 62, 54)",
+        "textAlign": "start",
+        "fontFamily": "Arimo, sans-serif"
+      }
+    ],
+    "first_p": {
+      "label": "p",
+      "text": "כדי לספק את החוויות הטובות ביותר, אנו משתמשים בטכנולוגיות כמ",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "lineHeight": "18px",
+      "color": "rgb(34, 34, 34)",
+      "textAlign": "start",
+      "fontFamily": "Arimo, sans-serif"
+    },
+    "body_font_size": "16px",
+    "body_font_family": "Arimo, sans-serif"
+  }
+]
