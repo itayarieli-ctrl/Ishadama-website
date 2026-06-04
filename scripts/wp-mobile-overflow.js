@@ -105,6 +105,24 @@ async function main() {
   };
   findings.builders = builders;
 
+  // 6b. Find selectors using translateX(-50%) or 100vw - these are the prime suspects
+  const culprits = [];
+  for (const block of styleBlocks) {
+    const rules = block.matchAll(/([^{}]+)\{([^}]+)\}/g);
+    for (const r of rules) {
+      const selector = r[1].trim();
+      const decl = r[2].trim();
+      if (/translateX\(-?50%\)|100vw|left\s*:\s*50%|right\s*:\s*50%/i.test(decl)) {
+        culprits.push({ selector: selector.slice(0, 150), decl: decl.slice(0, 300) });
+      }
+    }
+  }
+  findings.translate_culprits = culprits.slice(0, 40);
+
+  // 6c. Look at html element
+  const htmlTagMatch = home.body.match(/<html[^>]*>/i);
+  findings.html_tag = htmlTagMatch ? htmlTagMatch[0] : null;
+
   // 7. Find direct CSS rules with viewport-larger widths inline in <style>
   const styleBlocks = home.body.match(/<style[^>]*>([\s\S]*?)<\/style>/gi) || [];
   findings.style_block_count = styleBlocks.length;
@@ -154,6 +172,11 @@ async function main() {
     md += `- \`${s}\`\n`;
   }
   md += `\n## Widths in first 5KB of body\n\n\`\`\`json\n${JSON.stringify(findings.body_start_widths, null, 2)}\n\`\`\`\n\n`;
+  md += `## HTML tag\n\n\`\`\`\n${findings.html_tag}\n\`\`\`\n\n`;
+  md += `## Selectors using translateX(-50%) / 100vw / left:50%\n\n`;
+  for (const c of findings.translate_culprits) {
+    md += `- \`${c.selector}\`\n  → \`${c.decl}\`\n\n`;
+  }
   md += `## Stylesheets loaded (${findings.stylesheets.length})\n\n`;
   for (const s of findings.stylesheets) md += `- ${s}\n`;
 
