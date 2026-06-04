@@ -1,0 +1,36 @@
+name: Find Terms Page
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/general-session-Bv0AI]
+    paths:
+      - 'scripts/wp-find-terms-page.js'
+      - '.github/workflows/wp-find-terms-page.yml'
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/general-session-Bv0AI
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run
+        env:
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: node scripts/wp-find-terms-page.js
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/
+          if git diff --staged --quiet; then echo "no changes"; else
+            git commit -m "Terms page search: $(date -u +%Y-%m-%d-%H%M)"
+            git push
+          fi
