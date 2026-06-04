@@ -1,0 +1,36 @@
+name: Find Footer Links
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/general-session-Bv0AI]
+    paths:
+      - 'scripts/wp-find-footer-links.js'
+      - '.github/workflows/wp-find-footer-links.yml'
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/general-session-Bv0AI
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install puppeteer
+        run: npm init -y && npm install puppeteer
+      - name: Run
+        run: node scripts/wp-find-footer-links.js
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/
+          git reset HEAD package.json package-lock.json node_modules 2>/dev/null || true
+          if git diff --staged --quiet; then echo "no changes"; else
+            git commit -m "Footer links scan: $(date -u +%Y-%m-%d-%H%M)"
+            git push
+          fi
