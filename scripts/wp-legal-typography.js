@@ -112,3 +112,4 @@ async function measurePage(browser, p) {
   fs.writeFileSync('diagnostics/legal-pages-typography-raw.json', JSON.stringify(results, null, 2));
   console.log(md);
 })();
+// re-run Thu Jun  4 13:30:28 UTC 2026
