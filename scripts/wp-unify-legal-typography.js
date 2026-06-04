@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-// Add a Code Snippet that unifies typography across the 3 legal pages
-// (privacy=1508, conditions=5096, accessibility=3140)
+// Replace the legal typography snippet with stronger rules:
+// - Paragraphs: target all p/li inside the content area (not just main)
+// - Layout: max-width 800px centered, justified text
+// - Match the privacy page layout style
 
 const https = require("https");
 
@@ -20,17 +22,30 @@ function req(pathname, { method = "GET", body } = {}) {
   });
 }
 
-const SNIPPET_PHP = `
+const NEW_CODE = `
 add_action('wp_head', function() {
   if (!is_page([1508, 5096, 3140])) return;
   echo '<style id="claude-legal-typography">
-  /* Unified typography for legal pages: privacy (1508), conditions (5096), accessibility (3140) */
-  .page-id-1508 .elementor-heading-title,
-  .page-id-5096 .elementor-heading-title,
-  .page-id-3140 .elementor-heading-title,
-  .page-id-1508 main h1, .page-id-1508 main h2,
-  .page-id-5096 main h1, .page-id-5096 main h2,
-  .page-id-3140 main h1, .page-id-3140 main h2 {
+  /* === Unified legal pages: privacy(1508) / conditions(5096) / accessibility(3140) === */
+
+  /* Center the main content container with a readable max-width */
+  body.page-id-1508 .elementor-section .elementor-container,
+  body.page-id-5096 .elementor-section .elementor-container,
+  body.page-id-3140 .elementor-section .elementor-container,
+  body.page-id-1508 .e-con,
+  body.page-id-5096 .e-con,
+  body.page-id-3140 .e-con {
+    max-width: 820px !important;
+    margin-inline: auto !important;
+  }
+
+  /* Headings: 32px, weight 600, centered, consistent spacing */
+  body.page-id-1508 .elementor-heading-title,
+  body.page-id-5096 .elementor-heading-title,
+  body.page-id-3140 .elementor-heading-title,
+  body.page-id-1508 h1, body.page-id-1508 h2,
+  body.page-id-5096 h1, body.page-id-5096 h2,
+  body.page-id-3140 h1, body.page-id-3140 h2 {
     font-size: 32px !important;
     font-weight: 600 !important;
     text-align: center !important;
@@ -38,47 +53,95 @@ add_action('wp_head', function() {
     margin-top: 32px !important;
     margin-bottom: 16px !important;
   }
-  .page-id-1508 main h3, .page-id-1508 .elementor-widget-text-editor h3,
-  .page-id-5096 main h3, .page-id-5096 .elementor-widget-text-editor h3,
-  .page-id-3140 main h3, .page-id-3140 .elementor-widget-text-editor h3 {
+
+  /* Sub-headings */
+  body.page-id-1508 h3, body.page-id-1508 h4,
+  body.page-id-5096 h3, body.page-id-5096 h4,
+  body.page-id-3140 h3, body.page-id-3140 h4 {
     font-size: 20px !important;
     font-weight: 600 !important;
+    text-align: start !important;
     line-height: 1.4 !important;
     margin-top: 24px !important;
     margin-bottom: 12px !important;
   }
-  .page-id-1508 main p, .page-id-1508 .elementor-widget-text-editor p, .page-id-1508 .elementor-widget-text-editor li,
-  .page-id-5096 main p, .page-id-5096 .elementor-widget-text-editor p, .page-id-5096 .elementor-widget-text-editor li,
-  .page-id-3140 main p, .page-id-3140 .elementor-widget-text-editor p, .page-id-3140 .elementor-widget-text-editor li {
+
+  /* Body text — readable size, justified, comfortable line-height */
+  body.page-id-1508 .elementor-widget-text-editor,
+  body.page-id-5096 .elementor-widget-text-editor,
+  body.page-id-3140 .elementor-widget-text-editor,
+  body.page-id-1508 .elementor-widget-text-editor *,
+  body.page-id-5096 .elementor-widget-text-editor *,
+  body.page-id-3140 .elementor-widget-text-editor *,
+  body.page-id-1508 p, body.page-id-1508 li, body.page-id-1508 span,
+  body.page-id-5096 p, body.page-id-5096 li, body.page-id-5096 span,
+  body.page-id-3140 p, body.page-id-3140 li, body.page-id-3140 span {
     font-size: 16px !important;
-    line-height: 1.6 !important;
+    line-height: 1.7 !important;
+    text-align: justify !important;
   }
-  /* Make sure the accessibility widget popup heading (always 21px) is not affected */
-  .page-id-1508 #vplugin h2, .page-id-5096 #vplugin h2, .page-id-3140 #vplugin h2 {
+
+  /* Make sure vplugin (accessibility widget) is unaffected */
+  body.page-id-1508 #vplugin *, body.page-id-5096 #vplugin *, body.page-id-3140 #vplugin * {
+    font-size: revert !important;
+    text-align: revert !important;
+    line-height: revert !important;
+    max-width: none !important;
+  }
+  body.page-id-1508 #vplugin h2, body.page-id-5096 #vplugin h2, body.page-id-3140 #vplugin h2 {
     font-size: 21px !important;
     text-align: center !important;
+  }
+
+  /* Restore default for header/footer area */
+  body.page-id-3140 header *, body.page-id-3140 footer *,
+  body.page-id-3140 [data-elementor-type="header"] *,
+  body.page-id-3140 [data-elementor-type="footer"] * {
+    font-size: revert !important;
+    text-align: revert !important;
+    line-height: revert !important;
+    max-width: none !important;
   }
   </style>';
 }, 100);
 `;
 
 (async () => {
-  console.log("Creating typography unification snippet...");
-  const create = await req("/wp-json/code-snippets/v1/snippets", {
-    method: "POST",
-    body: {
-      name: "Claude: Legal Pages Typography",
-      desc: "Unifies font sizes and heading styles across privacy/conditions/accessibility pages. Created by Claude SEO assistant.",
-      code: SNIPPET_PHP,
-      scope: "global",
-      active: true,
-      priority: 20,
-    },
-  });
-
-  if (create.status !== 200 && create.status !== 201) {
-    console.error("Failed:", create.status, create.body?.slice(0, 500));
+  // 1. Find existing snippet
+  const list = await req("/wp-json/code-snippets/v1/snippets");
+  if (!Array.isArray(list.json)) {
+    console.error("Failed to list snippets:", list.status, list.body?.slice(0, 300));
     process.exit(1);
   }
-  console.log("Snippet created id=" + create.json?.id + " active=" + create.json?.active);
+  const existing = list.json.find(s => s.name === "Claude: Legal Pages Typography");
+  if (!existing) {
+    console.error("Existing snippet not found - will create new");
+  } else {
+    console.log(`Found existing snippet id=${existing.id}, updating...`);
+    const upd = await req(`/wp-json/code-snippets/v1/snippets/${existing.id}`, {
+      method: "POST",
+      body: { code: NEW_CODE, active: true },
+    });
+    console.log(`Update HTTP ${upd.status}, active=${upd.json?.active}`);
+    if (upd.json?.code === 'rest_invalid_param' || upd.status >= 400) {
+      console.error("Update error:", upd.body?.slice(0, 500));
+    }
+  }
+
+  if (!existing) {
+    const create = await req("/wp-json/code-snippets/v1/snippets", {
+      method: "POST",
+      body: {
+        name: "Claude: Legal Pages Typography",
+        desc: "Unifies layout/typography on privacy/conditions/accessibility pages",
+        code: NEW_CODE,
+        scope: "global",
+        active: true,
+        priority: 20,
+      },
+    });
+    console.log(`Created id=${create.json?.id}`);
+  }
+
+  console.log("\nDone. Note: PhastPress may cache the page - try a hard refresh (Ctrl+Shift+R).");
 })();
