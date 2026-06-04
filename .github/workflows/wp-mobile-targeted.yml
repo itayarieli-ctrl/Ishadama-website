@@ -1,0 +1,38 @@
+name: Mobile Targeted Diagnostic
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/general-session-Bv0AI]
+    paths:
+      - 'scripts/wp-mobile-targeted.js'
+      - '.github/workflows/wp-mobile-targeted.yml'
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/general-session-Bv0AI
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install puppeteer
+        run: npm init -y && npm install puppeteer
+      - name: Run diagnostic
+        run: node scripts/wp-mobile-targeted.js
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/
+          git reset HEAD package.json package-lock.json node_modules 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Mobile targeted diagnostic: $(date -u +%Y-%m-%d)"
+            git push
+          fi
